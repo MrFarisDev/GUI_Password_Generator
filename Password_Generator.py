@@ -16,15 +16,19 @@ def passw():
 
     num = entry.get()
 
-    Num = int(num)
+    if num.isdigit() != True:
+        messagebox.showerror("Error", "Please enter a number")
+    else:
+        
+        Num = int(num)
 
-    long = Num
+        long = Num
 
-    x = random.choices(alpha , k=long)
+        x = random.choices(alpha , k=long)
 
-    password = "".join(x)
+        password = "".join(x)
 
-    messagebox.showinfo("Passwors_Generator" , "You'r password is :{}".format(password))
+        messagebox.showinfo("Passwors_Generator" , "You'r password is : {}".format(password))
 
 # ====================================================================================
 
@@ -32,7 +36,16 @@ tk = Tk()
 
 tk.title("Password Generator")
 
-tk.geometry("400x400")
+#======================================================================================
+
+width = tk.winfo_screenwidth()
+height = tk.winfo_screenheight()
+
+middle_width = width //2 - 400//2
+middle_hight = height//2 - 400//2
+
+tk.geometry(f"400x400+{middle_width}+{middle_hight}")
+
 
 tk.config(background="#022f43")
 
